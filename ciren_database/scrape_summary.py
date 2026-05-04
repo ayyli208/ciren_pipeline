@@ -21,9 +21,8 @@ from openpyxl import load_workbook
 import os
 
 
-
-DOWNLOAD_FOLDER = r"D:\UMich\Senior Year\umtri\ciren_database\CrashExports"
-OUTPUT_FILE = r"D:\UMich\Senior Year\umtri\ciren_database\ciren_crash_summaries.xlsx"
+DOWNLOAD_FOLDER = rf"D:\UMich\Senior Year\umtri\clean\ciren_database\CrashExports"
+OUTPUT_FILE = rf"D:\UMich\Senior Year\umtri\clean\ciren_database\ciren_crash_summaries.xlsx"
 PAGE_LOAD_TIMEOUT_SECONDS = 45
 MAX_NAV_RETRIES = 2
 

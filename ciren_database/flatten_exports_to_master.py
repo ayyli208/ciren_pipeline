@@ -16,9 +16,9 @@ import numpy as np
 import pandas as pd
 
 
-DEFAULT_INPUT = Path(r"d:\UMich\Senior Year\umtri\ciren_database\CrashExports")  # path to the downloaded xlsx files
-DEFAULT_CATEGORIZED = Path(r"d:\UMich\Senior Year\umtri\ciren_database\ciren_crash_summaries_categorized.xlsx")  # xlsx file containing the categorized cases
-DEFAULT_OUTPUT = Path(r"d:\UMich\Senior Year\umtri\ciren_database\master_cases.xlsx")  # output file from running this script
+DEFAULT_INPUT = Path(rf"D:\UMich\Senior Year\umtri\clean\ciren_database\CrashExports")  # path to the downloaded xlsx files
+DEFAULT_CATEGORIZED = Path(rf"D:\UMich\Senior Year\umtri\clean\ciren_database\ciren_crash_summaries_categorized.xlsx")  # xlsx file containing the categorized cases
+DEFAULT_OUTPUT = Path(rf"D:\UMich\Senior Year\umtri\clean\ciren_database\master_cases.xlsx")  # output file from running this script
 
 def _safe(v: Any) -> Any:
     if pd.isna(v):
