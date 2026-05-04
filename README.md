@@ -13,6 +13,8 @@ This project implements a 6-stage pipeline to process CIREN crash data, classify
 5. Compute simulation delta-V
 6. Compute injury risk outputs
 
+* Steps 1-4 should be completed in the `ciren_database` folder (web scraping and organizing data into a master Excel sheet `master_cases.xlsx`).
+* Steps 5–6 should be completed in the `ciren` folder (calculating `delta_v` and generating injury predictions).
 ---
 
 ## 1️⃣ Download CIREN Case Exports
@@ -20,6 +22,7 @@ This project implements a 6-stage pipeline to process CIREN crash data, classify
 ### ▶️ Run
 
 ```bash
+cd ciren_database
 python scrape.py
 ```
 
@@ -113,6 +116,7 @@ SCENARIOS = [
 ```
 ciren_crash_summaries_categorized.xlsx
 ```
+* Add this xlsx file to the `ciren_database` folder.
 
 ---
 
