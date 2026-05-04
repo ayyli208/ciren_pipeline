@@ -120,6 +120,7 @@ SCENARIOS = [
 ```
 ciren_crash_summaries_categorized.xlsx
 ```
+* Depending on how you go about this, you may need to create your own xlsx file and copy/paste the LLM output
 * Add this xlsx file to the `ciren_database` folder.
 
 ---
