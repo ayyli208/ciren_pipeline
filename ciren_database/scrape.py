@@ -9,11 +9,22 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
 import os
+import time
+from pathlib import Path
+
+def wait_for_downloads(download_folder, timeout=120):
+    folder = Path(download_folder)
+    start = time.time()
+    while time.time() - start < timeout:
+        in_progress = list(folder.glob("*.crdownload"))
+        if not in_progress:
+            return True
+        time.sleep(1)
+    return False
 
 
-# Leave blank to use Chrome's default download folder.
-# Fill in an absolute path, for example: r"D:\UMich\Senior Year\umtri\ciren_database\downloads"
-DOWNLOAD_FOLDER = rf"D:\UMich\Senior Year\umtri\ciren_database\CrashExports"
+# Fill in an absolute path
+DOWNLOAD_FOLDER = rf"D:\UMich\Senior Year\umtri\clean\ciren_database\CrashExports"
 
 options = Options()
 options.add_argument("--log-level=3")
@@ -55,7 +66,10 @@ for case_id in cirenids:
         time.sleep(0.5)
         driver.execute_script("arguments[0].click();", export_btn)
         print(f"  Download triggered for {case_id}")
-        time.sleep(2.5)
+        ok = wait_for_downloads(DOWNLOAD_FOLDER, timeout=120)
+        if not ok:
+            print(f"  Download timeout for {case_id} (.crdownload still present)")
+
     except TimeoutException:
         print(f"  Skipped {case_id}: export button not found")
     except Exception as exc:

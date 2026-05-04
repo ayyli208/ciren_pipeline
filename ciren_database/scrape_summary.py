@@ -115,10 +115,6 @@ def main() -> None:
         ws = wb.active
         ws.append(["cirenid", "crash_summary"])
 
-    # wb = openpyxl.Workbook()
-    # ws = wb.active
-    # ws.title = "Crash Summaries"
-    # ws.append(["cirenid", "crash_summary"])
 
     driver = build_driver()
     try:
